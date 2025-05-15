@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void Binary(int num)
+{
+    
+    int binary[32], top = -1;
+    while (num > 0) 
+    {
+        top++;
+        binary[top] = num % 2;
+        num /= 2;
+    }
+    
+    for (int i = top ; i >= 0; i--)
+        printf("%d", binary[i]);
+}
+
+int main()
+{
+    int num,i;
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+    Binary(num);
+return 0;
+}
