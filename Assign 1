@@ -1,1 +1,138 @@
 
+#include<stdio.h>
+#include<string.h>
+struct employee
+{
+    char name[20];
+    int salary;
+};
+int main()
+{
+    struct employee e[5];
+    int i,n,p,ch;
+    
+    printf("enter number of employee");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+    printf("enter name and salary of employee");
+    scanf("%s%d",e[i].name,&e[i].salary);
+    }
+    do
+    {
+   printf("\n1.display employee record\n 2.insert new information\n 3.delete information\n 4.modify\n 5.exit");
+   printf("\nenter your choice");
+   scanf("%d",&ch);
+   
+   switch(ch)
+  {
+      case 1:printf("display information:");
+          
+          for(i=0;i<n;i++)
+          {
+             printf("\nname:%s",e[i].name);
+             printf("salary:%d",e[i].salary);
+          }
+             break;
+       case 2:
+        printf("enter position");
+  scanf("%d",&p);
+  if(p>0)
+  {
+    printf("valid position");
+  }
+  else
+  {
+      printf("invalid position");
+  }
+   for(i=n;i>=p;i--) 
+   {
+       strcpy(e[i+1].name,e[i].name);
+       e[i+1].salary=e[i].salary;
+   }
+       printf("\nenter new information");
+       printf("enter name and salary ");
+       scanf("%s%d",e[i+1].name,&e[i+1].salary);
+      
+       n++;
+     printf("\nnew record") ; 
+       for(i=0;i<n;i++)
+       {
+           printf("\nname:%s",e[i].name);
+           printf("\tsalary:%d",e[i].salary);
+       }
+       break;
+          
+          
+          
+       case 3:printf("delete information");
+       
+       printf("\nenter position to delete information");
+  scanf("%d",&p);
+  if(p>0)
+  {
+    printf("valid position");
+  }
+  else
+  {
+      printf("invalid position");
+  }
+   for(i=p;i<n-1;i++) 
+   {
+       strcpy(e[i].name,e[i+1].name);
+       e[i].salary=e[i+1].salary;
+   }
+     n--;  
+     printf("\nnew record") ; 
+       for(i=0;i<n;i++)
+       {
+           printf("\nname:%s",e[i].name);
+           printf("salary:%d",e[i].salary);
+       }
+       break;
+        
+    
+    case 4:printf("modify string");
+    printf("\nenter position to modify");
+   
+  scanf("%d",&p);
+  if(p>0)
+  {
+    printf("valid position");
+  }
+  else
+  {
+      printf("invalid position");
+  }
+  for(i=n;i>=p;i--) 
+   {
+       strcpy(e[i+1].name,e[i].name);
+       e[i+1].salary=e[i].salary;
+   }
+   
+  
+  
+       printf("\nenter new information");
+       printf("\nenter name and salary ");
+       scanf("%s%d",e[i+1].name,&e[i+1].salary);
+       
+  
+    printf("\nnew record") ; 
+    
+       for(i=0;i<n;i++)
+       {
+           printf("\nname:%s",e[i].name);
+           printf("\tsalary:%d",e[i].salary);
+       }
+       
+       break;
+   
+    
+       
+       case 5:printf("exit");
+       break;
+  }
+   }while(ch!=0&&ch<5);
+    
+ return 0;
+}
