@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main()
+{
+int n,i,j,p,k;
+printf("Enter size of array");
+scanf("%d",&n);
+int a[n];
+printf("enter array elements");
+for(i=0;i<n;i++)
+{
+printf("\nEnter %d array element",i);
+scanf("%d",&a[i]);
+}
+for (i = 1; i <n; i++)
+{
+p = a[i];
+for ( j = i; j > 0; j--)
+{
+if (a[j - 1] > p)
+{
+a[j] = a[j - 1];  
+}
+else 
+{
+break; 
+}
+}
+a[j] = p;  
+printf("Pass %d: ", i);
+for (int k = 0; k < n; k++) 
+{
+printf("%d\t", a[k]);
+    
+}
+printf("\n");
+}
+printf("sorted array elements are:");
+for(i=0;i<n;i++)
+{
+printf("%d\t",a[i]);
+}
+return 0;
+}
